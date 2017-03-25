@@ -3,11 +3,11 @@
 
 import pytest
 
-# from const.test.dev import food_example as food
-# from const.test.dev.food_example import food_col
+# from constant.test.dev import food_example as food
+# from constant.test.dev.food_example import food_col
 
-from const.test import food as food
-from const.test.food import food_col
+from constant.test import food as food
+from constant.test.food import food_col
 
 
 def test_items():
