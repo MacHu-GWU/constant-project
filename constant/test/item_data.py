@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from autocompvar import create_data_script
-
 metadata = {
     "classname": "Item",
     "attrs": ["id", "name"],
