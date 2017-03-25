@@ -4,7 +4,7 @@
 from jinja2 import Environment, PackageLoader
 
 env = Environment(
-    loader=PackageLoader('const', 'tpl'),
+    loader=PackageLoader('constant', 'tpl'),
 )
 t_class_def = env.get_template("class_def.txt")
 t_collection_class_def = env.get_template("collection_class_def.txt")

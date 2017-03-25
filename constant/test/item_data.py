@@ -264,7 +264,7 @@ metadata = {
 }
 
 if __name__ == "__main__":
-    from const import gencode
+    from constant import gencode
     
     path = "item.py"
     with open(path, "wb") as f:

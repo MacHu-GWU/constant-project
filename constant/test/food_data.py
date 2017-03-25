@@ -48,7 +48,7 @@ metadata = {
 }
 
 if __name__ == "__main__":
-    from const import gencode
+    from constant import gencode
     
     path = "food.py"
     with open(path, "wb") as f:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from const.base import Base
+from constant.base import Base
 
 class Creature(Base):
     __attrs__ = ['id', 'name']
@@ -32,45 +32,45 @@ class CreatureCol(Base):
     
     _collection.append(creature_name____None)
     name____None = creature_name____None
-	
+    
     _collection.append(creature_name____Beast)
     name____Beast = creature_name____Beast
-	
+    
     _collection.append(creature_name____Dragonkin)
     name____Dragonkin = creature_name____Dragonkin
-	
+    
     _collection.append(creature_name____Demon)
     name____Demon = creature_name____Demon
-	
+    
     _collection.append(creature_name____Elemental)
     name____Elemental = creature_name____Elemental
-	
+    
     _collection.append(creature_name____Giant)
     name____Giant = creature_name____Giant
-	
+    
     _collection.append(creature_name____Undead)
     name____Undead = creature_name____Undead
-	
+    
     _collection.append(creature_name____Humanoid)
     name____Humanoid = creature_name____Humanoid
-	
+    
     _collection.append(creature_name____Critter)
     name____Critter = creature_name____Critter
-	
+    
     _collection.append(creature_name____Mechanical)
     name____Mechanical = creature_name____Mechanical
-	
+    
     _collection.append(creature_name____NotSpecified)
     name____NotSpecified = creature_name____NotSpecified
-	
+    
     _collection.append(creature_name____Totem)
     name____Totem = creature_name____Totem
-	
+    
     _collection.append(creature_name____NonCombatPet)
     name____NonCombatPet = creature_name____NonCombatPet
-	
+    
     _collection.append(creature_name____GasCloud)
     name____GasCloud = creature_name____GasCloud
-	
+    
     
 creature_col = CreatureCol()

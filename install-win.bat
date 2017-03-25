@@ -1,4 +1,3 @@
 pushd "%~dp0"
-cd const
-python zzz_manual_install.py
+cd constant
 python3 zzz_manual_install.py

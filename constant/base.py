@@ -13,7 +13,7 @@ Similar to ``collections.namedtuple``, ``nameddict`` is a data container class.
 try:
     from .pkg import nameddict, name_convention
 except:
-    from const.pkg import nameddict, name_convention
+    from constant.pkg import nameddict, name_convention
 
 SEP = "____"
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from const.base import Base
+from constant.base import Base
 
 class SubClass0(Base):
     __attrs__ = ['id', 'name']

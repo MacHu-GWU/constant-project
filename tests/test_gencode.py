@@ -2,23 +2,23 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from const.test.validate_implementation import validate_implementation
+from constant.test.validate_implementation import validate_implementation
 
 def test():
-    from const.test.creature_data import metadata
-    from const.test.creature import creature_col
+    from constant.test.creature_data import metadata
+    from constant.test.creature import creature_col
     validate_implementation(metadata, creature_col)
       
-    from const.test.food_data import metadata
-    from const.test.food import food_col
+    from constant.test.food_data import metadata
+    from constant.test.food import food_col
     validate_implementation(metadata, food_col)
        
-    from const.test.inventory_data import metadata
-    from const.test.inventory import inventory_col
+    from constant.test.inventory_data import metadata
+    from constant.test.inventory import inventory_col
     validate_implementation(metadata, inventory_col)
      
-    from const.test.item_data import metadata
-    from const.test.item import item_col
+    from constant.test.item_data import metadata
+    from constant.test.item import item_col
     validate_implementation(metadata, item_col)
 
 

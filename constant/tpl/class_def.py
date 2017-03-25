@@ -6,9 +6,9 @@ try:
     from ..pkg import name_convention
     from ..exc import ValidationError
 except:
-    from const.tpl.env import t_class_def, t_collection_class_def, t_code
-    from const.pkg import name_convention
-    from const.exc import ValidationError
+    from constant.tpl.env import t_class_def, t_collection_class_def, t_code
+    from constant.pkg import name_convention
+    from constant.exc import ValidationError
 
 TAB = "|   "
 
@@ -238,18 +238,18 @@ class ClassDef(object):
         """
         return list(self.iter_class_def_recursive_depth_first())
     
-    def gencode(self, import_from="const"):
+    def gencode(self, import_from="constant"):
         """Generate code。
         """
         return t_code.render(class_def=self, import_from=import_from)
 
 
-def gencode(metadata, import_from="const"):
+def gencode(metadata, import_from="constant"):
     return ClassDef(**metadata).gencode(import_from=import_from)
 
     
 if __name__ == "__main__":
-    from const.test.food_data import metadata
+    from constant.test.food_data import metadata
     from pprint import pprint
     
     class_def = ClassDef(**metadata)

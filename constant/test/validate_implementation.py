@@ -14,8 +14,9 @@ def validate_implementation(metadata, root_col):
             
             validate_implementation(meta, child_col)
 
+
 if __name__ == "__main__":
-    from const.test.food_data import metadata
-    from const.test.food import food_col
+    from constant.test.food_data import metadata
+    from constant.test.food import food_col
 
     validate_implementation(metadata, food_col)
