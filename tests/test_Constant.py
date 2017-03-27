@@ -24,7 +24,7 @@ class Food(Constant):
                 name = "red apple"
 
             class GreenApple(Constant):
-                id = 1
+                id = 2
                 name = "green apple"
 
         class Banana(Constant):
@@ -64,14 +64,21 @@ def test_collection():
     assert Food.collection() == [Food.Fruit, Food.Meat]
     assert Food.Fruit.collection() == [Food.Fruit.Apple, Food.Fruit.Banana]
     assert Food.Fruit.Apple.collection(
-    ) == [Food.Fruit.Apple.GreenApple, Food.Fruit.Apple.RedApple]
+        sort_by="__name__") == [Food.Fruit.Apple.GreenApple, Food.Fruit.Apple.RedApple]
+    assert Food.Fruit.Apple.collection(
+        sort_by="name") == [Food.Fruit.Apple.GreenApple, Food.Fruit.Apple.RedApple]
+    assert Food.Fruit.Apple.collection(
+        sort_by="id") == [Food.Fruit.Apple.RedApple, Food.Fruit.Apple.GreenApple]
+    assert Food.Fruit.Apple.collection(sort_by="id", reverse=True) == [
+        Food.Fruit.Apple.GreenApple, Food.Fruit.Apple.RedApple]
     assert Food.Fruit.Apple.RedApple.collection() == []
 
 
 def test_get_one():
-    assert Food.get_one("id", 1) == Food.Fruit
-    assert Food.get_one("name", "meat") == Food.Meat
-    assert Food.get_one("value", "Hello World") is None
+    assert Food.get("id", 1) == Food.Fruit
+    assert Food.get("name", "meat") == Food.Meat
+    assert Food.get("value", "Hello World") is None
+    assert Food.get("id", 1, multi=True) == [Food.Fruit, ]
 
 
 if __name__ == "__main__":
