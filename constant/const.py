@@ -3,9 +3,12 @@
 
 import inspect
 try:
-    from .pkg.sixmini import integer_types, string_types
+    from .pkg.sixmini import integer_types, string_types, PY3
 except:
-    from constant.pkg.sixmini import integer_types, string_types
+    from constant.pkg.sixmini import integer_types, string_types, PY3
+
+if PY3:
+    from functools import lru_cache
 
 
 def get_attributes(klass):
@@ -20,9 +23,10 @@ def get_attributes(klass):
 
 
 class Constant(object):
+
     """A constant data collection.
     """
-    
+
     @classmethod
     def items(cls):
         """Attributes ordered by alphabetical order.
@@ -36,19 +40,19 @@ class Constant(object):
             except:
                 l.append((attr, value))
         return l
-    
+
     @classmethod
     def keys(cls):
         return [attr for attr, _ in cls.items()]
-    
+
     @classmethod
     def values(cls):
         return [value for _, value in cls.items()]
-    
+
     @classmethod
     def to_dict(cls):
         return dict(cls.items())
-    
+
     @classmethod
     def collection(cls, sort_by=None, reverse=False):
         """Sub class ordered by alphabetical order.
@@ -62,14 +66,17 @@ class Constant(object):
             except:
                 pass
         if sort_by is not None:
-            l = list(sorted(l, key=lambda x: getattr(x, sort_by), reverse=reverse))
+            l = list(
+                sorted(l, key=lambda x: getattr(x, sort_by), reverse=reverse))
         return l
-    
+
     @classmethod
+    @lru_cache(maxsize=32)
     def get(cls, attr, value, multi=False, e=0.000001):
         """Get a subclass that subclass.attr == value.
-        
-        :param multi: if True, then return all matched 
+
+        :param multi: if True, then return all matched.
+        :param e: used for float value comparison.
         """
         if multi:
             matched = list()
@@ -102,9 +109,9 @@ class Constant(object):
                             pass
                 except:
                     pass
-                
+
             return matched
-        
+
         else:
             for klass in cls.collection():
                 d = klass.__dict__
@@ -135,5 +142,5 @@ class Constant(object):
                             pass
                 except:
                     pass
-                
+
             return None

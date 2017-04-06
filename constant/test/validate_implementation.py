@@ -2,6 +2,12 @@
 # -*- coding: utf-8 -*-
 
 def validate_implementation(metadata, root_col):
+    """
+    
+    **中文文档**
+    
+    检验最后的实现是否正确。
+    """
     if "collection" in metadata:
         for meta, child_col in zip(metadata["collection"], root_col._collection):
             assert meta["data"] == child_col.to_dict()

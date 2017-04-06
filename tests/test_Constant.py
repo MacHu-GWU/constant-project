@@ -5,8 +5,10 @@
 
 """
 
+from __future__ import print_function
 import pytest
 from constant import Constant
+from constant.pkg.sixmini import PY3
 
 
 class Food(Constant):
@@ -81,6 +83,20 @@ def test_get_one():
     assert Food.get("id", 1, multi=True) == [Food.Fruit, ]
 
 
+def test_get_one_performance():
+    import time
+    
+    st = time.clock()
+    for i in range(1000):
+        Food.get("id", 2)
+    elapsed = time.clock() - st
+    if PY3:
+        print("with lfu_cache elapsed %.6f second." % elapsed)
+    else:
+        print("without cache elapsed %.6f second." % elapsed)
+            
+    
+            
 if __name__ == "__main__":
     import os
     pytest.main([os.path.basename(__file__), "--tb=native", "-s", ])

@@ -9,7 +9,89 @@
 
 Welcome to constant Documentation
 ===============================================================================
-This is just a example project for demonstration purpose.
+If you have lots of constant value widely used across your development. A better way is to define ``Constant Variable`` rather than using the raw value. This will improve the readability of your codes.
+
+``constant`` is a library provide extensive way of managing your constant.
+
+Example:
+
+.. code-block:: python
+
+	from constant import Constant
+	from constant.pkg.sixmini import PY3
+
+
+	class Food(Constant):
+
+	    class Fruit(Constant):
+	        id = 1
+	        name = "fruit"
+
+	        class Apple(Constant):
+	            id = 1
+	            name = "apple"
+
+	            class RedApple(Constant):
+	                id = 1
+	                name = "red apple"
+
+	            class GreenApple(Constant):
+	                id = 2
+	                name = "green apple"
+
+	        class Banana(Constant):
+	            id = 2
+	            name = "banana"
+
+	            class YellowBanana(Constant):
+	                id = 1
+	                name = "yellow banana"
+
+	            class GreenBanana(Constant):
+	                id = 2
+	                name = "green banana"
+
+	    class Meat(Constant):
+	        id = 2
+	        name = "meat"
+
+	        class Pork(Constant):
+	            id = 1
+	            name = "pork"
+
+	        class Meat(Constant):
+	            id = 2
+	            name = "meat"
+
+
+You can visit it's data or child class data in these way.
+
+
+.. code-block:: python
+
+	>>> Fruit.items() # .items() return it's data
+	[('id', 1), ('name', 'fruit')]
+
+	>>> Fruit.keys() # .keys() return keys
+	['id', 'name']
+
+	>>> Fruit.keys() # .values() return values
+	[1, 'fruit']
+
+	>>> Fruit.to_dict() # return data in a dict
+	{'id': 1, 'name': 'fruit'}
+
+	# iterate on all child class
+	>>> Fruit.collection(sort_by='id')
+	[class Apple, class Banana]
+
+	# get first child class that kls.id == 1
+	# useful when you need reverse lookup
+	>>> Fruit.get('id', 1)
+	class Apple
+
+	>>> Fruit.get('id', 1, multi=True) # get all child class that kls.id == 1
+	[class Apple, ]
 
 
 **Quick Links**

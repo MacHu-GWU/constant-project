@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+本脚本用于在开发, 根据数据生成脚本文件的实现中, 进行功能性的测试。
+"""
+
 import pytest
 
 # from constant.test.dev import food_example as food
