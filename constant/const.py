@@ -3,12 +3,11 @@
 
 import inspect
 try:
-    from .pkg.sixmini import integer_types, string_types, PY3
+    from .pkg import pylru
+    from .pkg.sixmini import integer_types, string_types
 except:
-    from constant.pkg.sixmini import integer_types, string_types, PY3
-
-if PY3:
-    from functools import lru_cache
+    from constant.pkg import pylru
+    from constant.pkg.sixmini import integer_types, string_types
 
 
 def get_attributes(klass):
@@ -71,7 +70,7 @@ class Constant(object):
         return l
 
     @classmethod
-    @lru_cache(maxsize=32)
+    @pylru.lrudecorator(32)
     def get(cls, attr, value, multi=False, e=0.000001):
         """Get a subclass that subclass.attr == value.
 
